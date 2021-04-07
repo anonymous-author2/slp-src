@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package>
+  <name>slp</name>
+  <version>0.1.0</version>
+  <description>Ros files for the situated live programming project (review version)</description>
+  <maintainer email="jane.doe@example.com">Jane Doe</maintainer> 
+  <license>MIT</license>
+  <author email="jane.doe@example.com">Jane Doe</author> 
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>tf</build_depend>
+  <build_depend>rviz_camera_stream</build_depend>
+  <build_depend>ros_numpy</build_depend>
+  <build_depend>slp_msgs</build_depend>
+  <build_depend>robot_msgs</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <run_depend>tf</run_depend>
+  <run_depend>rviz_camera_stream</run_depend>
+  <run_depend>ros_numpy</run_depend>
+  <run_depend>slp_msgs</run_depend>
+  <run_depend>robot_msgs</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+</package>

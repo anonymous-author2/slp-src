@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="only_virtual" default="true"/>
+    <arg name="record" default="false"/>
+    <node pkg="slp" type="planner" name="planner" output="screen"/>
+    <node pkg="slp" type="tracker" name="tracker" output="screen"> 
+        <param name="only_virtual" type="bool" value="$(arg only_virtual)" />
+    </node> 
+    <group if="$(arg only_virtual)">
+        <node pkg="slp" type="poi" name="poi">
+            <param name="only_virtual" type="bool" value="$(arg only_virtual)" />
+        </node> 
+    </group>
+
+    <node pkg="slp" type="mover_server" name="mover_server" output="screen">
+        <param name="only_virtual" type="bool" value="$(arg only_virtual)" />
+    </node>
+
+    <node pkg="slp" type="static_publisher" name="rotated_camera_static_publisher">
+        <param name="file_name" type="string" value="transforms.yaml" />
+        <param name="transform" type="string" value="rotated_camera" />
+    </node>
+
+    <node pkg="slp" type="parser" name="parser" output="screen">
+        <param name="only_virtual" type="bool" value="$(arg only_virtual)" />
+    </node>
+
+    <group if="$(arg record)">
+        <node pkg="slp" type="recorder" name="recorder"/>        
+    </group>
+
+    <node pkg="slp" type="pandaJacob" name="pandaJacob"/>
+</launch>
